@@ -111,6 +111,23 @@
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
+    const catagory = document.querySelector(".mw-category");
+    //console.log(catagory);
+    // catagory
+    // const links = document.querySelectorAll("a");
+    const links = Array.from(catagory.querySelectorAll('a'));
+    // links
+    // console.table(links);
+    // console.log(links);
+    // console.clear()
+    const de = links
+      .map(link => link.textContent)
+      .filter(streetName => streetName.includes("de"))
+    
+      console.table(de);
+
+    
+
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
