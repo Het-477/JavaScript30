@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Array Cardio 💪</title>
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
+
 <body>
   <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
   <script>
@@ -35,53 +37,63 @@
       'Berne, Eric', 'Berra, Yogi', 'Berry, Wendell', 'Bevan, Aneurin', 'Ben-Gurion, David', 'Bevel, Ken', 'Biden, Joseph', 'Bennington, Chester', 'Bierce, Ambrose',
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
-    
+
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
     const bornin_1500 = inventors.filter((inventor) => {
-        if (inventor.year >= 1500 && inventor.year < 1600) {
-          return true; // returning true means keep it!
-        } else {
-          return false;
-        }
-      })
+      if (inventor.year >= 1500 && inventor.year < 1600) {
+        return true; // returning true means keep it!
+      } else {
+        return false;
+      }
+    })
 
-      // console.table(bornin_1500);
+    // console.table(bornin_1500);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
     const fullNames = inventors.map((inventor) => {
-        return inventor.first + " " + inventor.last;
-      })
+      return inventor.first + " " + inventor.last;
+    })
 
-      // or 
+    // or 
 
     const fullNames_2 = inventors.map((inventor) => {
       return `${inventor.first} ${inventor.last}`; // 
     })
 
     // console.log(fullNames);
-    console.log(fullNames_2);
+    // console.log(fullNames_2);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
     const oldToYoung = inventors.sort((firstPerson, secondPerson) => {
-        if (firstPerson.year > secondPerson.year) {
-          return 1;
-        } else {
-          return -1;
-        }
-      })
+      if (firstPerson.year > secondPerson.year) {
+        return 1;
+      } else {
+        return -1;
+      }
+    })
 
-    
+
     // or 
-    
-    const oldToYoung_2 = inventors.sort((a,b) => {a.year > b.year ? 1 : -1 })
 
-    console.table(oldToYoung_2);
-    console.log(oldToYoung);
+    const oldToYoung_2 = inventors.sort((a, b) => { a.year > b.year ? 1 : -1 })
+
+    //console.table(oldToYoung_2);
+    // console.log(oldToYoung);
+
+
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+
+    const totalYears = inventors.reduce((total, inventor) => {
+      return total + (inventor.passed - inventor.year);
+    }, 0);
+
+
+    // console.log(yearsLived);
+    console.log(totalYears);
 
     // 5. Sort the inventors by years lived
 
@@ -94,8 +106,9 @@
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
-    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
 
   </script>
 </body>
+
 </html>
