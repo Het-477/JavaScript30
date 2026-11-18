@@ -27,7 +27,36 @@
 
     // Some and Every Checks
     // Array.prototype.some() // is at least one person 19 or older?
+    const isSomeoneAdult = people.some(person => {
+        const currentYear = (new Date()).getFullYear();
+        if ((currentYear - person.year) >= 18) {
+          return true;
+        }
+      })
+
+      console.log({isSomeoneAdult});
+      // console.table({isAdult});
+          
     // Array.prototype.every() // is everyone 19 or older?
+    const isEveryoneAdult = people.every(person => {
+        const currentYear = (new Date()).getFullYear();
+        if ((currentYear - person.year) >= 19) {
+          return true;
+        }
+      })
+      
+      ///console.log(currentYear)
+      console.log({isEveryoneAdult});
+
+      /*
+      So in Summary:
+      .some() is like There Exists (∃) Quantifer in Discrete Mathematics
+      - it just checks if the condition is true for any one element, and if it finds then the function returns true.
+   
+      .every() is like For All (∀) Qunatifer
+      - it checks the condition for every single element and if it finds even a single element which makes the condition false then the function returns false,
+        otherwise if all the elements are true for the condition then it returns true.
+      */
 
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
